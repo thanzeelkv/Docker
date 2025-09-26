@@ -16,7 +16,8 @@ RUN CGO_ENABLED=0 go build -o /app .
 # HERE STARTS THE MAGIC OF MULTI STAGE BUILD
 ############################################
 
-FROM scratch
+#distroless image
+FROM scratch  
 
 # Copy the compiled binary from the build stage
 COPY --from=build /app /app
